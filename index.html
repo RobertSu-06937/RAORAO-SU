@@ -30,9 +30,25 @@
         section{max-width:960px;margin:0 auto;padding:3rem 2rem}
         section.shaded{max-width:100%;background:var(--sand)}
         section.shaded .inner{max-width:960px;margin:0 auto}
-        .stitle{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:1.8rem;padding-bottom:.5rem;border-bottom:2px solid var(--accent);display:inline-block}
+        .stitle{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:1.5rem;padding-bottom:.5rem;border-bottom:2px solid var(--accent);display:inline-block}
         .prose{font-size:1.05rem;line-height:1.85;max-width:700px}
         .prose p{margin-bottom:1.2rem}
+        .pub-item{padding:.9rem 0;border-bottom:1px solid rgba(0,0,0,.06)}
+        .pub-item:last-child{border-bottom:none}
+        .pub-title{font-size:.92rem;color:var(--ink);line-height:1.55}
+        .pub-cn{font-size:.85rem;color:var(--muted);margin-top:.1rem}
+        .pub-meta{font-family:'Inter',sans-serif;font-size:.72rem;color:var(--muted);margin-top:.25rem;line-height:1.6}
+        .pub-meta a{color:var(--accent);text-decoration:none}
+        .pub-meta a:hover{text-decoration:underline}
+        .pub-tag{font-family:'Inter',sans-serif;display:inline-block;font-size:.58rem;font-weight:600;padding:.12rem .4rem;border-radius:2px;text-transform:uppercase;letter-spacing:.05em;margin-right:.3rem}
+        .pub-tag.sci{background:#e3f0e8;color:#2d6a4f}
+        .pub-tag.ssci{background:#e0ecf4;color:#2c5f7c}
+        .pub-tag.cssci{background:#f0e6d3;color:#8b6914}
+        .pub-tag.cscd{background:#ede7f0;color:#6b4c8a}
+        .chap{padding:.7rem 0;border-bottom:1px solid rgba(0,0,0,.05)}
+        .chap:last-of-type{border-bottom:none}
+        .chap .t{font-size:.92rem;color:var(--ink);line-height:1.55}
+        .chap .v{font-family:'Inter',sans-serif;font-size:.72rem;color:var(--muted);margin-top:.2rem}
         .cv-item{display:grid;grid-template-columns:110px 1fr;gap:1rem;padding:.6rem 0}
         .cv-year{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--light)}
         .cv-detail h4{font-size:.92rem;font-weight:600;color:var(--ink)}
@@ -40,10 +56,6 @@
         .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
         .skills-grid h4{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:.6rem}
         .skills-grid p{font-family:'Inter',sans-serif;font-size:.82rem;line-height:1.7}
-        .chap{padding:.7rem 0;border-bottom:1px solid rgba(0,0,0,.05)}
-        .chap:last-of-type{border-bottom:none}
-        .chap .t{font-size:.92rem;color:var(--ink);line-height:1.55}
-        .chap .v{font-family:'Inter',sans-serif;font-size:.72rem;color:var(--muted);margin-top:.2rem}
         footer{max-width:960px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border);font-family:'Inter',sans-serif;font-size:.72rem;color:var(--light);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
         @media(max-width:640px){html{font-size:15px}.hero{padding:6rem 1.2rem 3rem}.hero h1{font-size:2rem}section{padding:2.5rem 1.2rem}nav .nav-inner{padding:.6rem 1.2rem}nav .nav-links{gap:1rem}.cv-item{grid-template-columns:1fr;gap:.2rem}.hero .links{gap:.8rem}}
     </style>
@@ -54,6 +66,7 @@
     <a href="#" class="nav-name">Raorao Su</a>
     <div class="nav-links">
         <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
         <a href="#background">Background</a>
         <a href="#contact">Contact</a>
     </div>
@@ -79,51 +92,86 @@
     <div class="prose">
         <p>My research uses historical maps, archival sources, spatial databases, and GIS to study long-term spatial change, cultural landscapes, water systems, settlements, and human–environment relations in China and Inner Asia.</p>
         <p>Current projects include: the relationship between Tibetan Buddhism and environmental change, with a focus on the spatial dynamics of monasteries across the Qinghai–Tibet Plateau; the historical geography of settlements in China; and the reconstruction of hydrographic networks in arid Northwest China over the past century.</p>
-        <p>Published in <em>Scientific Reports</em>, <em>Land</em>, and leading Chinese journals (CSSCI/CSCD). Book chapters with Cambridge University Press, Columbia University Press, and Springer (Princeton IAS volume). Full list on <a href="https://scholar.google.co.jp/citations?user=-bn_8xAAAAAJ&hl=en&oi=ao" style="color:var(--accent)">Google Scholar</a> and in my <a href="Su_Raorao_CV_EN.pdf" style="color:var(--accent)">CV</a>.</p>
+        <p>Published in <em>Scientific Reports</em>, <em>Land</em>, and leading Chinese journals. Book chapters with Cambridge University Press, Columbia University Press, and Springer. Full list on <a href="https://scholar.google.co.jp/citations?user=-bn_8xAAAAAJ&hl=en&oi=ao" style="color:var(--accent)">Google Scholar</a>.</p>
     </div>
 </section>
 
-<section class="shaded">
+<section class="shaded" id="publications">
     <div class="inner">
-        <span class="stitle">Selected Book Chapters</span>
-        <div class="chap"><div class="t">The Ecology of the Political Landscape in Northern Shaanxi During the Long Eleventh Century</div><div class="v"><strong>Springer</strong> (Princeton IAS volume), in press. With R. Mostern.</div></div>
-        <div class="chap"><div class="t">A Shatterzone on an Ecotone: Spatial and Political Ecologies of Erosion in the Jing River Basin</div><div class="v"><strong>Cambridge University Press</strong>, in press. With R. Mostern.</div></div>
-        <div class="chap"><div class="t">Frontier Military Colonies and Environmental Change on the Loess Plateau in the Eleventh Century</div><div class="v"><strong>Columbia University Press</strong>, forthcoming. With R. Mostern.</div></div>
+        <span class="stitle">Selected Journal Articles</span>
+
+        <div class="pub-item">
+            <div class="pub-title">宋代以来河湟谷地藏传佛教寺院空间扩展及其驱动因素</div>
+            <div class="pub-cn">Spatial Diffusion and Driving Factors of Tibetan Buddhist Temples in the Hehuang Valley Region After Song Dynasty</div>
+            <div class="pub-meta"><span class="pub-tag cssci">CSSCI</span><span class="pub-tag cscd">CSCD</span> <em>Economic Geography 经济地理</em>, 2023, 43(06): 220–229. Corresponding author; with Zhao Zhen.</div>
+        </div>
+
+        <div class="pub-item">
+            <div class="pub-title">近百年来塔里木河上游水系形态演变特征及其驱动因素</div>
+            <div class="pub-meta"><span class="pub-tag cssci">CSSCI</span> <em>Historical Geography Research 历史地理研究</em>, 2026, 46(01): 1–20. First author; with Pan Wei. <a href="https://doi.org/10.20166/j.issn.2096-6822.L20240076">DOI</a></div>
+        </div>
+
+        <div class="pub-item">
+            <div class="pub-title">清末民国新疆农田水利建设成果可视化及分析 (1909–1935)</div>
+            <div class="pub-cn">Visualization and Analysis of Farmland Water Conservancy Construction in Xinjiang during the Late Qing and Republican Period</div>
+            <div class="pub-meta"><span class="pub-tag cssci">CSSCI</span> <em>Researches in Chinese Economic History 中国经济史研究</em>, 2022, No.161(03): 155–166. First author; with Pan Wei.</div>
+        </div>
+
+        <div class="pub-item">
+            <div class="pub-title">Spatial Structure of Settlements in Mainland China in the Early 20th Century</div>
+            <div class="pub-meta"><span class="pub-tag ssci">SSCI</span> <em>Land</em>, 2025, 14(11): 2245. First author; with Zhao Zhen. <a href="https://doi.org/10.3390/land14112245">DOI</a></div>
+        </div>
+
+        <div class="pub-item">
+            <div class="pub-title">Long-term Evolution of Hydrographic Network Density in Arid Xinjiang, China: Reconstruction from Historical Maps (1900–2020)</div>
+            <div class="pub-meta"><span class="pub-tag sci">SCI</span> <em>Scientific Reports</em> 16, 18764 (2026). First author; with Zhao Zhen. <a href="https://doi.org/10.1038/s41598-026-49759-7">DOI</a></div>
+        </div>
+
+        <p style="margin-top:1.5rem;font-family:'Inter',sans-serif;font-size:.78rem;color:var(--muted)">→ Full list on <a href="https://scholar.google.co.jp/citations?user=-bn_8xAAAAAJ&hl=en&oi=ao" style="color:var(--accent)">Google Scholar</a> and in my <a href="Su_Raorao_CV_EN.pdf" style="color:var(--accent)">CV</a>.</p>
     </div>
 </section>
 
 <section>
-    <span class="stitle">Selected Presentations</span>
-    <div class="prose" style="font-size:.92rem">
-        <p>Keynote</strong>, 10th MRIC, University of Wah, Pakistan, 2025. <strong>18th International Conference of Historical Geographers</strong>, Fudan University, 2025. <strong>Institute for Advanced Study</strong>, Princeton, 2024. <strong>Hydrospheres Workshop</strong>, Duke University, 2023. <strong>Pittsburgh Water Collaboratory</strong>, University of Pittsburgh, 2023 (two invited talks).</p>
-    </div>
+    <span class="stitle">Book Chapters</span>
+    <div class="chap"><div class="t">The Ecology of the Political Landscape in Northern Shaanxi During the Long Eleventh Century</div><div class="v">In <em>The Great Wall of China as a Climate Frontier</em>, ed. N. Di Cosmo et al. — <strong>Springer</strong> (Princeton IAS volume), in press. With Ruth Mostern.</div></div>
+    <div class="chap"><div class="t">A Shatterzone on an Ecotone: Spatial and Political Ecologies of Erosion in the Jing River Basin</div><div class="v">In <em>The Hydrosphere of Monsoon Asia</em>, ed. P. Duara &amp; J. Wescoat — <strong>Cambridge University Press</strong>, in press. With Ruth Mostern.</div></div>
+    <div class="chap"><div class="t">Frontier Military Colonies and Environmental Change on the Loess Plateau in the Eleventh Century</div><div class="v">In <em>China's Environmental History: A Reader</em>, ed. B. Lander &amp; P. Lavelle — <strong>Columbia University Press</strong>, forthcoming. With Ruth Mostern.</div></div>
 </section>
 
-<section class="shaded" id="background">
+<section class="shaded">
     <div class="inner">
-        <span class="stitle">Background</span>
-        <div class="cv-item"><span class="cv-year">2024–present</span><div class="cv-detail"><h4>Guangzhou University</h4><p>Postdoctoral Researcher. Supervisor: Prof. David Dian Zhang (former Head, Dept. of Geography, HKU)</p></div></div>
-        <div class="cv-item"><span class="cv-year">2022–2023</span><div class="cv-detail"><h4>University of Pittsburgh</h4><p>Visiting Doctoral Researcher, Dept. of History. Advisor: Prof. Ruth Mostern</p></div></div>
-        <div class="cv-item"><span class="cv-year">2020–2024</span><div class="cv-detail"><h4>Renmin University of China</h4><p>Ph.D. in Environmental History. Advisor: Prof. Zhao Zhen</p></div></div>
-        <div class="cv-item"><span class="cv-year">2016–2019</span><div class="cv-detail"><h4>Shaanxi Normal University</h4><p>M.A. in Historical Geography. Advisor: Prof. Hou Yongjian</p></div></div>
-        <div class="cv-item"><span class="cv-year">2012–2016</span><div class="cv-detail"><h4>Xi'an International Studies University</h4><p>B.A. in International Politics</p></div></div>
-
-        <div style="margin-top:2.5rem">
-            <span class="stitle">Skills</span>
-            <div class="skills-grid">
-                <div><h4>GIS &amp; Spatial Analysis</h4><p>ArcGIS, QGIS, MapInfo, remote sensing, historical map georeferencing, UAV photogrammetry</p></div>
-                <div><h4>Programming</h4><p>Python, R, Stata, Pajek, Origin</p></div>
-                <div><h4>Languages</h4><p>Chinese (native), English (fluent), Classical Chinese (advanced)</p></div>
-            </div>
+        <span class="stitle">Selected Presentations</span>
+        <div class="prose" style="font-size:.92rem">
+            <p><strong>Keynote</strong>, 10th MRIC, University of Wah, Pakistan, 2025. <strong>18th International Conference of Historical Geographers</strong>, Fudan University, 2025. <strong>Institute for Advanced Study</strong>, Princeton, 2024. <strong>1st International Conference on Manchu Studies</strong>, National University of Mongolia, 2024. <strong>Hydrospheres Workshop</strong>, Duke University, 2023. <strong>Pittsburgh Water Collaboratory</strong>, University of Pittsburgh, 2023 (two invited talks).</p>
         </div>
     </div>
 </section>
 
-<section id="contact">
-    <span class="stitle">Contact</span>
-    <div class="prose" style="font-size:.92rem">
-        <p>I welcome inquiries about collaboration, data sharing, or open positions.</p>
-        <p><strong>Email:</strong> raosu980@gmail.com · raosu@gzhu.edu.cn<br><strong>Location:</strong> Guangzhou, China</p>
+<section id="background">
+    <span class="stitle">Background</span>
+    <div class="cv-item"><span class="cv-year">2024–present</span><div class="cv-detail"><h4>Guangzhou University</h4><p>Postdoctoral Researcher. Supervisor: Prof. David Dian Zhang (former Head, Dept. of Geography, HKU)</p></div></div>
+    <div class="cv-item"><span class="cv-year">2022–2023</span><div class="cv-detail"><h4>University of Pittsburgh</h4><p>Visiting Doctoral Researcher, Dept. of History. Advisor: Prof. Ruth Mostern</p></div></div>
+    <div class="cv-item"><span class="cv-year">2020–2024</span><div class="cv-detail"><h4>Renmin University of China</h4><p>Ph.D. in Environmental History. Advisor: Prof. Zhao Zhen</p></div></div>
+    <div class="cv-item"><span class="cv-year">2016–2019</span><div class="cv-detail"><h4>Shaanxi Normal University</h4><p>M.A. in Historical Geography. Advisor: Prof. Hou Yongjian</p></div></div>
+    <div class="cv-item"><span class="cv-year">2012–2016</span><div class="cv-detail"><h4>Xi'an International Studies University</h4><p>B.A. in International Politics</p></div></div>
+
+    <div style="margin-top:2.5rem">
+        <span class="stitle">Skills</span>
+        <div class="skills-grid">
+            <div><h4>GIS &amp; Spatial Analysis</h4><p>ArcGIS, QGIS, MapInfo, remote sensing, historical map georeferencing, UAV photogrammetry</p></div>
+            <div><h4>Programming</h4><p>Python, R, Stata, Pajek, Origin</p></div>
+            <div><h4>Languages</h4><p>Chinese (native), English (fluent), Classical Chinese (advanced)</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="shaded" id="contact">
+    <div class="inner">
+        <span class="stitle">Contact</span>
+        <div class="prose" style="font-size:.92rem">
+            <p>I welcome inquiries about collaboration, data sharing, or open positions.</p>
+            <p><strong>Email:</strong> raosu980@gmail.com · raosu@gzhu.edu.cn<br><strong>Location:</strong> Guangzhou, China</p>
+        </div>
     </div>
 </section>
 
