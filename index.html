@@ -1,2 +1,634 @@
-[build]
-  publish = "."
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raorao Su — Historical GIS & Environmental Change</title>
+    <meta name="description" content="Raorao Su is a historical geographer specializing in GIS-based spatial analysis of religious landscapes, hydrographic change, and settlement patterns in China's arid interior and the Tibetan Plateau.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --ink: #1a1a1a;
+            --text: #2d2d2d;
+            --muted: #6b6b6b;
+            --light: #a0a0a0;
+            --border: #d4d0c8;
+            --sand: #f5f3ee;
+            --cream: #faf9f6;
+            --white: #ffffff;
+            --accent: #2c5f7c;
+            --accent-light: #e8f0f5;
+            --terracotta: #b8704b;
+        }
+
+        html { font-size: 17px; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Source Serif 4', Georgia, serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        nav .nav-inner {
+            max-width: 960px; margin: 0 auto;
+            padding: 0.7rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        nav .nav-name {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600; font-size: 0.85rem;
+            letter-spacing: 0.04em; color: var(--ink);
+            text-decoration: none; text-transform: uppercase;
+        }
+        nav .nav-links { display: flex; gap: 1.8rem; }
+        nav .nav-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem; font-weight: 400;
+            color: var(--muted); text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: color 0.2s;
+        }
+        nav .nav-links a:hover { color: var(--ink); }
+
+        /* HERO */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            max-width: 960px; margin: 0 auto;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        .hero h1 {
+            font-size: 2.6rem; font-weight: 700;
+            line-height: 1.15; color: var(--ink);
+            letter-spacing: -0.02em;
+        }
+        .hero h1 .cn-name {
+            font-size: 1.4rem; font-weight: 300;
+            color: var(--muted); display: block;
+            margin-top: 0.3rem;
+        }
+        .hero .tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem; font-weight: 400;
+            color: var(--muted); line-height: 1.6;
+            max-width: 620px;
+            margin-top: 0.5rem;
+        }
+        .hero .affiliation {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem; color: var(--light);
+            margin-top: 1.2rem;
+            line-height: 1.7;
+        }
+        .hero .affiliation a {
+            color: var(--accent); text-decoration: none;
+        }
+        .hero .contact-row {
+            display: flex; gap: 1.5rem; flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .hero .contact-row a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem; font-weight: 500;
+            color: var(--accent); text-decoration: none;
+            padding: 0.35rem 0.9rem;
+            border: 1px solid var(--accent);
+            border-radius: 3px;
+            transition: all 0.2s;
+        }
+        .hero .contact-row a:hover {
+            background: var(--accent); color: var(--white);
+        }
+
+        /* SECTIONS */
+        section {
+            max-width: 960px; margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        section.shaded { 
+            max-width: 100%; 
+            background: var(--sand);
+        }
+        section.shaded .section-inner {
+            max-width: 960px; margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem; font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 1.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+
+        /* RESEARCH STATEMENT */
+        .research-statement {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text);
+            max-width: 700px;
+        }
+        .research-statement p { margin-bottom: 1.2rem; }
+
+        /* FEATURED PROJECT */
+        .project-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 2.2rem;
+            margin-top: 1.5rem;
+        }
+        .project-card h3 {
+            font-size: 1.2rem; font-weight: 600;
+            color: var(--ink); margin-bottom: 0.8rem;
+        }
+        .project-card .project-meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem; color: var(--terracotta);
+            font-weight: 500; text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+        }
+        .project-card p {
+            font-size: 0.95rem; line-height: 1.75;
+            color: var(--text);
+        }
+        .project-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat .stat-num {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.8rem; font-weight: 600;
+            color: var(--accent);
+        }
+        .stat .stat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem; color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.2rem;
+        }
+
+        /* PUBLICATIONS */
+        .pub-year {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem; font-weight: 600;
+            color: var(--accent);
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+        }
+        .pub-year:first-of-type { margin-top: 0; }
+
+        .pub-item {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .pub-item:last-child { border-bottom: none; }
+        .pub-title {
+            font-size: 0.92rem;
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.55;
+        }
+        .pub-venue {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-top: 0.2rem;
+        }
+        .pub-tag {
+            font-family: 'Inter', sans-serif;
+            display: inline-block;
+            font-size: 0.6rem; font-weight: 600;
+            padding: 0.15rem 0.45rem;
+            border-radius: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-left: 0.4rem;
+            vertical-align: middle;
+        }
+        .pub-tag.sci { background: #e3f0e8; color: #2d6a4f; }
+        .pub-tag.ssci { background: #e0ecf4; color: #2c5f7c; }
+        .pub-tag.cssci { background: #f0e6d3; color: #8b6914; }
+        .pub-tag.cscd { background: #ede7f0; color: #6b4c8a; }
+        .pub-tag.first { background: #fce4e4; color: #a63d40; }
+
+        /* BOOK CHAPTERS */
+        .chapter-item {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .chapter-item:last-child { border-bottom: none; }
+        .chapter-title { font-size: 0.92rem; color: var(--ink); line-height: 1.55; }
+        .chapter-press {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem;
+        }
+
+        /* EDUCATION & CV */
+        .cv-item {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 1rem;
+            padding: 0.6rem 0;
+        }
+        .cv-year {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem; color: var(--light);
+            font-weight: 400;
+            padding-top: 0.1rem;
+        }
+        .cv-detail h4 {
+            font-size: 0.92rem; font-weight: 600; color: var(--ink);
+        }
+        .cv-detail p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem; color: var(--muted);
+            margin-top: 0.15rem;
+        }
+
+        /* SKILLS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        .skill-group h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem; font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            margin-bottom: 0.6rem;
+        }
+        .skill-group p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* SELECTED TALKS */
+        .talk-item {
+            padding: 0.5rem 0;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+        .talk-venue {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem; color: var(--muted);
+        }
+
+        /* FOOTER */
+        footer {
+            max-width: 960px; margin: 0 auto;
+            padding: 2.5rem 2rem;
+            border-top: 1px solid var(--border);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            color: var(--light);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        footer a { color: var(--muted); text-decoration: none; }
+        footer a:hover { color: var(--ink); }
+
+        /* MOBILE */
+        @media (max-width: 640px) {
+            html { font-size: 15px; }
+            .hero { padding: 6rem 1.2rem 3rem; }
+            .hero h1 { font-size: 2rem; }
+            section { padding: 2.5rem 1.2rem; }
+            nav .nav-inner { padding: 0.6rem 1.2rem; }
+            nav .nav-links { gap: 1rem; }
+            nav .nav-links a { font-size: 0.7rem; }
+            .cv-item { grid-template-columns: 1fr; gap: 0.2rem; }
+            .project-stats { grid-template-columns: repeat(2, 1fr); }
+            .hero .contact-row { gap: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="#" class="nav-name">Raorao Su</a>
+        <div class="nav-links">
+            <a href="#research">Research</a>
+            <a href="#data">Data</a>
+            <a href="#publications">Publications</a>
+            <a href="#background">Background</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-grid">
+        <div>
+            <h1>
+                Raorao Su
+                <span class="cn-name">苏绕绕</span>
+            </h1>
+            <p class="tagline">
+                Historical geographer working at the intersection of GIS, environmental change, and religious landscapes. I use spatial analysis and historical cartography to reconstruct long-term human–environment interactions across China's arid interior and the Tibetan Plateau.
+            </p>
+            <p class="affiliation">
+                Postdoctoral Researcher, School of Geographical Sciences & Remote Sensing, Guangzhou University<br>
+                Ph.D. in Environmental History, Renmin University of China<br>
+                Visiting Fellow (incoming), University of Pittsburgh
+            </p>
+            <div class="contact-row">
+                <a href="mailto:raosu2020@163.com">Email</a>
+                <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+                <a href="https://orcid.org" target="_blank">ORCID</a>
+                <a href="#cv">CV (PDF)</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="research">
+    <span class="section-title">Research</span>
+    <div class="research-statement">
+        <p>My research examines how societies have shaped and been shaped by water, land, and climate across centuries. I combine historical documents, archival maps, remote sensing imagery, and GIS spatial analysis to transform fragmented textual records into computable geographic data, enabling new perspectives on long-term environmental and social processes.</p>
+        <p>Three lines of inquiry organize my current work. First, I reconstruct the evolution of hydrographic networks in arid Central and Northwest China over the past century, tracing how irrigation, land reclamation, and climate variability have reshaped the surface water systems of the Tarim Basin, Junggar Basin, and Hexi Corridor. Second, I investigate the spatial structure and historical dynamics of Tibetan Buddhist monasteries across the Plateau, using a georeferenced dataset of over 2,000 institutions to explore the interplay of religion, ethnicity, environment, and political authority. Third, I contribute to collaborative studies on cultural landscapes—including fengshui forests in southern China—that bridge historical ecology and spatial science.</p>
+        <p>Methodologically, I am committed to making historical geographic information open, reproducible, and interoperable, contributing to the broader project of digital historical geography.</p>
+    </div>
+</section>
+
+<section class="shaded" id="data">
+    <div class="section-inner">
+        <span class="section-title">Featured Project</span>
+        <div class="project-card">
+            <div class="project-meta">Dataset & Ongoing Research</div>
+            <h3>Historical Geographic Database of Tibetan Buddhist Monasteries</h3>
+            <p>A comprehensive georeferenced dataset documenting over 2,000 Tibetan Buddhist monasteries across the Qinghai–Tibet Plateau. Each record includes geographic coordinates, founding date, sectarian affiliation (Gelug, Kagyu, Nyingma, Sakya, Bon, etc.), and institutional scale. The dataset enables systematic spatial analysis of religious diffusion, sectarian competition, and the environmental contexts of monastic settlement across one of the world's most challenging landscapes.</p>
+            <p style="margin-top: 0.8rem;">Two studies drawing on this dataset are currently in preparation: one examining the relationship between Little Ice Age climate fluctuations and shifts in sectarian dominance, and another analyzing the spatial co-distribution of ethnic groups and religious institutions in the Amdo region.</p>
+            <div class="project-stats">
+                <div class="stat">
+                    <div class="stat-num">2,000+</div>
+                    <div class="stat-label">Monasteries Georeferenced</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">6</div>
+                    <div class="stat-label">Major Sects Covered</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">~800</div>
+                    <div class="stat-label">Years of Temporal Span</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">5</div>
+                    <div class="stat-label">Structured Data Fields</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="publications">
+    <span class="section-title">Selected Publications</span>
+
+    <div class="pub-year">2026</div>
+
+    <div class="pub-item">
+        <div class="pub-title">Long-term evolution of hydrographic network density in arid Xinjiang, China: Reconstruction from historical maps (1900–2020)</div>
+        <div class="pub-venue"><em>Scientific Reports</em> 16, 18764 <span class="pub-tag sci">SCI</span> <span class="pub-tag first">First Author</span></div>
+    </div>
+    <div class="pub-item">
+        <div class="pub-title">近百年来塔里木河上游水系形态演变特征及其驱动因素 [Morphological evolution and driving factors of the upper Tarim River hydrographic system over the past century]</div>
+        <div class="pub-venue"><em>Historical Geography Research</em> 46(01): 1–20 <span class="pub-tag cssci">CSSCI</span> <span class="pub-tag first">First Author</span></div>
+    </div>
+
+    <div class="pub-year">2025</div>
+
+    <div class="pub-item">
+        <div class="pub-title">Spatial Structure of Settlements in Mainland China in the Early 20th Century</div>
+        <div class="pub-venue"><em>Land</em> 14(11): 2245 <span class="pub-tag ssci">SSCI</span> <span class="pub-tag first">First Author</span></div>
+    </div>
+    <div class="pub-item">
+        <div class="pub-title">水利现代化背景下准噶尔内流区人水关系时空演变研究 [Spatiotemporal evolution of human–water relationships in the Junggar endorheic region]</div>
+        <div class="pub-venue"><em>Journal of Water Resources and Water Engineering</em> 36(02): 49–56 <span class="pub-tag cscd">CSCD</span> <span class="pub-tag first">First Author</span></div>
+    </div>
+
+    <div class="pub-year">2024</div>
+
+    <div class="pub-item">
+        <div class="pub-title">20世纪初塔里木盆地大旱与生态响应 [Severe drought and ecological response in the Tarim Basin in the early 20th century]</div>
+        <div class="pub-venue"><em>Plateau Meteorology</em> 43(03): 605–616 <span class="pub-tag cscd">CSCD</span> <span class="pub-tag first">First Author</span></div>
+    </div>
+
+    <div class="pub-year">2023</div>
+
+    <div class="pub-item">
+        <div class="pub-title">宋代以来河湟谷地藏传佛教寺院空间扩展及其驱动因素 [Spatial expansion and driving factors of Tibetan Buddhist monasteries in the Hehuang Valley since the Song Dynasty]</div>
+        <div class="pub-venue"><em>Economic Geography</em> 43(06): 220–229 <span class="pub-tag cssci">CSSCI / CSCD</span> Corresponding Author</div>
+    </div>
+
+    <div class="pub-year">2022</div>
+
+    <div class="pub-item">
+        <div class="pub-title">清末民国新疆农田水利建设成果可视化及分析 (1909–1935) [Visualization and analysis of farmland irrigation construction in late Qing and Republican Xinjiang]</div>
+        <div class="pub-venue"><em>Researches in Chinese Economic History</em> No.161(03): 155–166 <span class="pub-tag cssci">CSSCI</span> <span class="pub-tag first">First Author</span></div>
+    </div>
+
+    <div class="pub-year">2021</div>
+
+    <div class="pub-item">
+        <div class="pub-title">16世纪末以来北运河水系演变及驱动因素 [Evolution and driving factors of the North Grand Canal water system since the late 16th century]</div>
+        <div class="pub-venue"><em>Advances in Earth Science</em> 36(04): 390–398 <span class="pub-tag cscd">CSCD</span> <span class="pub-tag first">First Author</span></div>
+    </div>
+
+    <div class="pub-year">2018</div>
+
+    <div class="pub-item">
+        <div class="pub-title">近百年来渭干-库车绿洲灌渠变动对地表水系格局的影响 [Impact of canal changes on surface water patterns in the Weigan-Kuqa Oasis over the past century]</div>
+        <div class="pub-venue"><em>Journal of Arid Land Resources and Environment</em> 32(10): 123–129 <span class="pub-tag cssci">CSSCI / CSCD</span> <span class="pub-tag first">First Author</span></div>
+    </div>
+
+    <p style="margin-top: 2rem; font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--muted);">
+        → Full publication list including book chapters, co-authored works, and forthcoming publications available in <a href="#cv" style="color: var(--accent);">CV</a>.
+    </p>
+</section>
+
+<section class="shaded">
+    <div class="section-inner">
+        <span class="section-title">Book Chapters</span>
+
+        <div class="chapter-item">
+            <div class="chapter-title">The Ecology of the Political Landscape in Northern Shaanxi During the Long Eleventh Century</div>
+            <div class="chapter-press">In <em>The Great Wall of China as a Climate Frontier</em>, ed. N. Di Cosmo et al. — <strong>Springer</strong> (Princeton IAS volume)</div>
+        </div>
+        <div class="chapter-item">
+            <div class="chapter-title">A Shatterzone on an Ecotone: Spatial and Political Ecologies of Erosion in the Jing River Basin</div>
+            <div class="chapter-press">In <em>The Hydrosphere of Monsoon Asia</em>, ed. P. Duara & J. Wescoat — <strong>Cambridge University Press</strong> (forthcoming)</div>
+        </div>
+        <div class="chapter-item">
+            <div class="chapter-title">Frontier Military Colonies and Environmental Change on the Loess Plateau in the Eleventh Century</div>
+            <div class="chapter-press">In <em>China's Environmental History: A Reader</em>, ed. B. Lander & P. Lavelle — <strong>Columbia University Press</strong> (forthcoming)</div>
+        </div>
+        <div class="chapter-item">
+            <div class="chapter-title">Digital Historical Yellow River</div>
+            <div class="chapter-press">In <em>Spatial Synthesis: Human Dynamics in Smart Cities</em> — <strong>Springer</strong>, 2020</div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <span class="section-title">Selected Presentations</span>
+
+    <div class="talk-item">
+        <strong>Association for Asian Studies (AAS) Annual Conference</strong> — 2027 (upcoming)<br>
+        <span class="talk-venue">Panel with Karl Ryavec, Ruth Mostern, Gray Tuttle, Mark Henderson</span>
+    </div>
+    <div class="talk-item">
+        <strong>10th Multidisciplinary Research International Conference</strong> — Keynote Speaker, Oct 2025<br>
+        <span class="talk-venue">University of Wah, Pakistan</span>
+    </div>
+    <div class="talk-item">
+        <strong>18th International Conference of Historical Geographers</strong> — Jul 2025<br>
+        <span class="talk-venue">Fudan University, Shanghai</span>
+    </div>
+    <div class="talk-item">
+        <strong>The Political Ecology of Settlement in Northern Shaanxi</strong> — May 2024<br>
+        <span class="talk-venue">Institute for Advanced Study, Princeton</span>
+    </div>
+    <div class="talk-item">
+        <strong>Hydrospheres Workshop</strong> — Apr 2023<br>
+        <span class="talk-venue">Duke University</span>
+    </div>
+    <div class="talk-item">
+        <strong>Pittsburgh Water Collaboratory</strong> — Feb–Mar 2023<br>
+        <span class="talk-venue">University of Pittsburgh, Department of Geology & Environmental Science (two invited talks)</span>
+    </div>
+</section>
+
+<section class="shaded" id="background">
+    <div class="section-inner">
+        <span class="section-title">Background</span>
+
+        <div class="cv-item">
+            <span class="cv-year">2024–present</span>
+            <div class="cv-detail">
+                <h4>Guangzhou University</h4>
+                <p>Postdoctoral Researcher, School of Geographical Sciences & Remote Sensing<br>
+                Advisor: Prof. David Dian Zhang (former Head, Dept. of Geography, HKU)</p>
+            </div>
+        </div>
+        <div class="cv-item">
+            <span class="cv-year">2022–2023</span>
+            <div class="cv-detail">
+                <h4>University of Pittsburgh</h4>
+                <p>Visiting Doctoral Researcher, Dept. of History (CSC Fellowship)<br>
+                Advisor: Prof. Ruth Mostern</p>
+            </div>
+        </div>
+        <div class="cv-item">
+            <span class="cv-year">2020–2024</span>
+            <div class="cv-detail">
+                <h4>Renmin University of China</h4>
+                <p>Ph.D. in Environmental History — Advisor: Prof. Zhao Zhen</p>
+            </div>
+        </div>
+        <div class="cv-item">
+            <span class="cv-year">2016–2019</span>
+            <div class="cv-detail">
+                <h4>Shaanxi Normal University</h4>
+                <p>M.A. in Historical Geography — Advisor: Prof. Hou Yongjian</p>
+            </div>
+        </div>
+        <div class="cv-item">
+            <span class="cv-year">2012–2016</span>
+            <div class="cv-detail">
+                <h4>Xi'an International Studies University</h4>
+                <p>B.A. in International Politics</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 2.5rem;">
+            <span class="section-title">Technical Skills</span>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <h4>Geospatial</h4>
+                    <p>ArcGIS, MapInfo, QGIS, historical map georeferencing, remote sensing analysis, UAV photogrammetry</p>
+                </div>
+                <div class="skill-group">
+                    <h4>Programming & Statistics</h4>
+                    <p>R, Python, Stata, MATLAB, Origin, Pajek</p>
+                </div>
+                <div class="skill-group">
+                    <h4>Methods</h4>
+                    <p>Spatial analysis, cartography, data visualization, social network analysis, historical GIS database construction</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <span class="section-title">Collaborators & Networks</span>
+    <div class="research-statement" style="font-size: 0.92rem;">
+        <p>I have had the privilege of working with scholars across disciplines and institutions, including 
+            <strong>Ruth Mostern</strong> (University of Pittsburgh; World-Historical Gazetteer), 
+            <strong>Nicola Di Cosmo</strong> (Institute for Advanced Study, Princeton), 
+            <strong>Karl Ryavec</strong> (University of Wisconsin–Stevens Point; <em>A Historical Atlas of Tibet</em>), 
+            <strong>Gray Tuttle</strong> (Columbia University; Tibetan & Buddhist Studies), 
+            <strong>Chris Coggins</strong> (Bard College; cultural ecology & fengshui forests), 
+            and <strong>David Dian Zhang</strong> (formerly HKU; paleoclimatology & human–environment interactions). 
+        </p>
+        <p>I am a member of the Association of American Geographers (AAG), the Chinese Economic History Society, and the Water History Committee of the Chinese Hydraulic Engineering Society.</p>
+    </div>
+</section>
+
+<section class="shaded" id="contact">
+    <div class="section-inner">
+        <span class="section-title">Contact</span>
+        <div class="research-statement" style="font-size: 0.92rem;">
+            <p>I am currently seeking academic positions in historical geography, historical GIS, environmental history, and Asian/Tibetan Studies — particularly in Hong Kong, Macau, or international institutions. I welcome inquiries about collaboration, data sharing, or open positions.</p>
+            <p>
+                <strong>Email:</strong> raosu2020@163.com<br>
+                <strong>Location:</strong> Guangzhou, China<br>
+                <strong>Languages:</strong> Chinese (native), English (academic proficiency)
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <span>© 2026 Raorao Su. Built with care.</span>
+    <span>Last updated: July 2026</span>
+</footer>
+
+</body>
+</html>
