@@ -20,18 +20,6 @@
         nav .nav-links a{font-family:'Inter',sans-serif;font-size:.78rem;color:var(--muted);text-decoration:none;transition:color .2s}
         nav .nav-links a:hover{color:var(--ink)}
         .hero{padding:8rem 2rem 4rem;max-width:960px;margin:0 auto}
-        .hero-grid{
-        display:grid;
-        grid-template-columns:1fr 230px;
-        gap:3rem;
-        align-items:center;
-        }
-
-         .hero-photo img{
-         width:230px;
-         border-radius:8px;
-         display:block;
-         }
         .hero h1{font-size:2.6rem;font-weight:700;line-height:1.15;color:var(--ink)}
         .hero h1 .cn{font-size:1.4rem;font-weight:300;color:var(--muted);display:block;margin-top:.3rem}
         .hero .tagline{font-family:'Inter',sans-serif;font-size:.9rem;color:var(--muted);line-height:1.6;max-width:620px;margin-top:.5rem}
@@ -68,8 +56,29 @@
         .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
         .skills-grid h4{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:.6rem}
         .skills-grid p{font-family:'Inter',sans-serif;font-size:.82rem;line-height:1.7}
+
+        .gallery-intro{font-family:'Inter',sans-serif;font-size:.82rem;color:var(--muted);margin-bottom:1.5rem}
+        .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.8rem}
+        .gallery figure{margin:0}
+        .gallery img{display:block;width:100%;height:260px;object-fit:cover;object-position:center;border-radius:8px;border:1px solid var(--border)}
+        .gallery figcaption{margin-top:.6rem;font-family:'Inter',sans-serif;font-size:.78rem;color:var(--muted);line-height:1.5}
+        .gallery figcaption strong{color:var(--ink);font-weight:600}
         footer{max-width:960px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid var(--border);font-family:'Inter',sans-serif;font-size:.72rem;color:var(--light);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-        @media(max-width:640px){html{font-size:15px}.hero{padding:6rem 1.2rem 3rem}.hero h1{font-size:2rem}section{padding:2.5rem 1.2rem}nav .nav-inner{padding:.6rem 1.2rem}nav .nav-links{gap:1rem}.cv-item{grid-template-columns:1fr;gap:.2rem}.hero .links{gap:.8rem}}
+        @media(max-width:640px){
+            html{font-size:15px}
+            .hero{padding:6rem 1.2rem 3rem}
+            .hero-grid{grid-template-columns:1fr;gap:2rem}
+            .hero h1{font-size:2rem}
+            .hero-photo{order:2}
+            .hero-photo img{width:180px;height:225px}
+            section{padding:2.5rem 1.2rem}
+            nav .nav-inner{padding:.6rem 1.2rem}
+            nav .nav-links{gap:1rem}
+            .cv-item{grid-template-columns:1fr;gap:.2rem}
+            .hero .links{gap:.8rem}
+            .gallery{grid-template-columns:1fr;gap:1.5rem}
+            .gallery img{height:220px}
+        }
     </style>
 </head>
 <body>
@@ -80,69 +89,32 @@
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
         <a href="#background">Background</a>
+        <a href="#fieldwork">Fieldwork</a>
         <a href="#contact">Contact</a>
     </div>
 </div></nav>
 
 <header class="hero">
-
-<div class="hero-grid">
-
-<div>
-
-<h1>
-Raorao Su
-<span class="cn">苏绕绕</span>
-</h1>
-
-<p class="tagline">
-Historian and spatial digital humanist specializing in historical GIS,
-environmental history, and the historical geography of China and Inner Asia.
-</p>
-
-<p class="aff">
-Postdoctoral Researcher, School of Geographical Sciences &amp; Remote Sensing,
-Guangzhou University<br>
-Ph.D. in Environmental History, Renmin University of China
-</p>
-
-<div class="links">
-
-<a href="mailto:raosu980@gmail.com">Gmail</a>
-
-<a href="mailto:raosu@gzhu.edu.cn">GZHU Email</a>
-
-<a href="https://scholar.google.co.jp/citations?user=-bn_8xAAAAAJ&hl=en&oi=ao"
-target="_blank"
-rel="noopener">
-Google Scholar
-</a>
-
-<a href="https://orcid.org/0009-0003-0563-4889"
-target="_blank"
-rel="noopener">
-ORCID
-</a>
-
-<a href="Su_Raorao_CV_EN.pdf"
-target="_blank"
-rel="noopener">
-CV (PDF)
-</a>
-
-</div>
-
-</div>
-
-<div class="hero-photo">
-
-<img src="49b3454cb57cd99d3435bbfca2ecd77e.jpg"
-alt="Raorao Su">
-
-</div>
-
-</div>
-
+    <div class="hero-grid">
+        <div class="hero-text">
+            <h1>Raorao Su<span class="cn">苏绕绕</span></h1>
+            <p class="tagline">Historian and spatial digital humanist specializing in historical GIS, environmental history, and the historical geography of China and Inner Asia.</p>
+            <p class="aff">
+                Postdoctoral Researcher, School of Geographical Sciences &amp; Remote Sensing, Guangzhou University<br>
+                Ph.D. in Environmental History, Renmin University of China
+            </p>
+            <div class="links">
+                <a href="mailto:raosu980@gmail.com">Gmail</a>
+                <a href="mailto:raosu@gzhu.edu.cn">GZHU Email</a>
+                <a href="https://scholar.google.co.jp/citations?user=-bn_8xAAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener">Google Scholar</a>
+                <a href="https://orcid.org/0009-0003-0563-4889" target="_blank" rel="noopener">ORCID</a>
+                <a href="Su_Raorao_CV_EN.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+            </div>
+        </div>
+        <div class="hero-photo">
+            <img src="49b3454cb57cd99d3435bbfca2ecd77e.jpg" alt="Portrait of Raorao Su">
+        </div>
+    </div>
 </header>
 
 <section id="research">
@@ -150,6 +122,8 @@ alt="Raorao Su">
     <div class="prose">
         <p>My research uses historical maps, archival sources, spatial databases, and GIS to study long-term spatial change, cultural landscapes, water systems, settlements, and human–environment relations in China and Inner Asia.</p>
         <p>Current projects include: the relationship between Tibetan Buddhism and environmental change, with a focus on the spatial dynamics of monasteries across the Qinghai–Tibet Plateau; the historical geography of settlements in China; and the reconstruction of hydrographic networks in arid Northwest China over the past century.</p>
+        <p>I have published multiple academic articles in both English and Chinese, including papers in SSCI-, SCI-, CSSCI-, and CSCD-indexed journals, as well as book chapters published or forthcoming with Cambridge University Press and Columbia University Press. For a complete list of publications, please see my <a href="Su_Raorao_CV_EN.pdf" target="_blank" rel="noopener" style="color:var(--accent)">CV</a>.</p>
+    </div>
 </section>
 
 <section class="shaded" id="publications">
@@ -221,17 +195,36 @@ alt="Raorao Su">
     </div>
 </section>
 
-<section>
-    <span class="stitle">Field Experience</span>
+<section id="fieldwork">
+    <span class="stitle">Fieldwork</span>
 
     <div class="prose" style="font-size:0.95rem;">
-        <p>
-        I have a longstanding interest in exploring frontier regions and remote landscapes through fieldwork. My research has taken me across Tibet, Xinjiang, Inner Mongolia, and Alaska, where I have conducted investigations related to historical geography, environmental history, archaeology, and landscape change.
-        </p>
+        <p>I have a longstanding interest in exploring frontier regions and remote landscapes through fieldwork. My research has taken me across Tibet, Xinjiang, Inner Mongolia, and Alaska, where I have conducted investigations related to historical geography, environmental history, archaeology, and landscape change.</p>
+        <p>Extensive field experience in the Tibetan Plateau, Xinjiang, and the Amdo region has informed my understanding of historical settlements, religious landscapes, and long-term human–environment interactions.</p>
+    </div>
 
-        <p>
-        Extensive field experience in the Tibetan Plateau, Xinjiang, and the Amdo region has informed my understanding of historical settlements, religious landscapes, and long-term human–environment interactions.
-        </p>
+    <p class="gallery-intro">Selected fieldwork photographs from Tibet, Xinjiang, and Alaska.</p>
+
+    <div class="gallery">
+        <figure>
+            <img src="日喀则地区的热泉.jpg" alt="Landscape near a geothermal area in Shigatse, Tibet">
+            <figcaption><strong>Tibet</strong><br>Landscape near a geothermal area, Shigatse (2025)</figcaption>
+        </figure>
+
+        <figure>
+            <img src="安多地区藏族僧人9世纪修行洞穴.jpg" alt="Ninth-century meditation cave in Amdo">
+            <figcaption><strong>Amdo</strong><br>Ninth-century meditation cave associated with Tibetan Buddhist practice (2026)</figcaption>
+        </figure>
+
+        <figure>
+            <img src="天山北麓山区一处废弃的定居点.jpg" alt="Abandoned settlement in the northern Tianshan Mountains, Xinjiang">
+            <figcaption><strong>Xinjiang</strong><br>Abandoned settlement in the northern Tianshan Mountains (2018)</figcaption>
+        </figure>
+
+        <figure>
+            <img src="在Anchorage所见Knik Arm景观.png" alt="Knik Arm landscape in Anchorage, Alaska">
+            <figcaption><strong>Alaska</strong><br>Knik Arm landscape, Anchorage (2023)</figcaption>
+        </figure>
     </div>
 </section>
     
