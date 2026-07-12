@@ -150,97 +150,6 @@
         }
         .research-statement p { margin-bottom: 1.2rem; }
 
-        /* FEATURED PROJECT */
-        .project-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 2.2rem;
-            margin-top: 1.5rem;
-        }
-        .project-card h3 {
-            font-size: 1.2rem; font-weight: 600;
-            color: var(--ink); margin-bottom: 0.8rem;
-        }
-        .project-card .project-meta {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem; color: var(--terracotta);
-            font-weight: 500; text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 1rem;
-        }
-        .project-card p {
-            font-size: 0.95rem; line-height: 1.75;
-            color: var(--text);
-        }
-        .project-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border);
-        }
-        .stat {
-            text-align: center;
-        }
-        .stat .stat-num {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.8rem; font-weight: 600;
-            color: var(--accent);
-        }
-        .stat .stat-label {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.7rem; color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-top: 0.2rem;
-        }
-
-        /* PUBLICATIONS */
-        .pub-year {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8rem; font-weight: 600;
-            color: var(--accent);
-            margin-top: 2rem;
-            margin-bottom: 0.8rem;
-        }
-        .pub-year:first-of-type { margin-top: 0; }
-
-        .pub-item {
-            padding: 0.7rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        .pub-item:last-child { border-bottom: none; }
-        .pub-title {
-            font-size: 0.92rem;
-            font-weight: 400;
-            color: var(--ink);
-            line-height: 1.55;
-        }
-        .pub-venue {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.72rem;
-            color: var(--muted);
-            margin-top: 0.2rem;
-        }
-        .pub-tag {
-            font-family: 'Inter', sans-serif;
-            display: inline-block;
-            font-size: 0.6rem; font-weight: 600;
-            padding: 0.15rem 0.45rem;
-            border-radius: 2px;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-left: 0.4rem;
-            vertical-align: middle;
-        }
-        .pub-tag.sci { background: #e3f0e8; color: #2d6a4f; }
-        .pub-tag.ssci { background: #e0ecf4; color: #2c5f7c; }
-        .pub-tag.cssci { background: #f0e6d3; color: #8b6914; }
-        .pub-tag.cscd { background: #ede7f0; color: #6b4c8a; }
-        .pub-tag.first { background: #fce4e4; color: #a63d40; }
-
         /* BOOK CHAPTERS */
         .chapter-item {
             padding: 0.7rem 0;
@@ -333,7 +242,6 @@
             nav .nav-links { gap: 1rem; }
             nav .nav-links a { font-size: 0.7rem; }
             .cv-item { grid-template-columns: 1fr; gap: 0.2rem; }
-            .project-stats { grid-template-columns: repeat(2, 1fr); }
             .hero .contact-row { gap: 0.8rem; }
         }
     </style>
@@ -345,8 +253,6 @@
         <a href="#" class="nav-name">Raorao Su</a>
         <div class="nav-links">
             <a href="#research">Research</a>
-            <a href="#data">Data</a>
-            <a href="#publications">Publications</a>
             <a href="#background">Background</a>
             <a href="#contact">Contact</a>
         </div>
@@ -372,7 +278,7 @@
                 <a href="mailto:raosu2020@163.com">Email</a>
                 <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
                 <a href="https://orcid.org" target="_blank">ORCID</a>
-                <a href="#cv">CV (PDF)</a>
+                <a href="Su_Raorao_CV_EN.pdf" target="_blank" rel="noopener">CV (PDF)</a>
             </div>
         </div>
     </div>
@@ -387,100 +293,7 @@
     </div>
 </section>
 
-<section class="shaded" id="data">
-    <div class="section-inner">
-        <span class="section-title">Featured Project</span>
-        <div class="project-card">
-            <div class="project-meta">Dataset & Ongoing Research</div>
-            <h3>Historical Geographic Database of Tibetan Buddhist Monasteries</h3>
-            <p>A comprehensive georeferenced dataset documenting over 2,000 Tibetan Buddhist monasteries across the Qinghai–Tibet Plateau. Each record includes geographic coordinates, founding date, sectarian affiliation (Gelug, Kagyu, Nyingma, Sakya, Bon, etc.), and institutional scale. The dataset enables systematic spatial analysis of religious diffusion, sectarian competition, and the environmental contexts of monastic settlement across one of the world's most challenging landscapes.</p>
-            <p style="margin-top: 0.8rem;">Two studies drawing on this dataset are currently in preparation: one examining the relationship between Little Ice Age climate fluctuations and shifts in sectarian dominance, and another analyzing the spatial co-distribution of ethnic groups and religious institutions in the Amdo region.</p>
-            <div class="project-stats">
-                <div class="stat">
-                    <div class="stat-num">2,000+</div>
-                    <div class="stat-label">Monasteries Georeferenced</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-num">6</div>
-                    <div class="stat-label">Major Sects Covered</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-num">~800</div>
-                    <div class="stat-label">Years of Temporal Span</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-num">5</div>
-                    <div class="stat-label">Structured Data Fields</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section id="publications">
-    <span class="section-title">Selected Publications</span>
-
-    <div class="pub-year">2026</div>
-
-    <div class="pub-item">
-        <div class="pub-title">Long-term evolution of hydrographic network density in arid Xinjiang, China: Reconstruction from historical maps (1900–2020)</div>
-        <div class="pub-venue"><em>Scientific Reports</em> 16, 18764 <span class="pub-tag sci">SCI</span> <span class="pub-tag first">First Author</span></div>
-    </div>
-    <div class="pub-item">
-        <div class="pub-title">近百年来塔里木河上游水系形态演变特征及其驱动因素 [Morphological evolution and driving factors of the upper Tarim River hydrographic system over the past century]</div>
-        <div class="pub-venue"><em>Historical Geography Research</em> 46(01): 1–20 <span class="pub-tag cssci">CSSCI</span> <span class="pub-tag first">First Author</span></div>
-    </div>
-
-    <div class="pub-year">2025</div>
-
-    <div class="pub-item">
-        <div class="pub-title">Spatial Structure of Settlements in Mainland China in the Early 20th Century</div>
-        <div class="pub-venue"><em>Land</em> 14(11): 2245 <span class="pub-tag ssci">SSCI</span> <span class="pub-tag first">First Author</span></div>
-    </div>
-    <div class="pub-item">
-        <div class="pub-title">水利现代化背景下准噶尔内流区人水关系时空演变研究 [Spatiotemporal evolution of human–water relationships in the Junggar endorheic region]</div>
-        <div class="pub-venue"><em>Journal of Water Resources and Water Engineering</em> 36(02): 49–56 <span class="pub-tag cscd">CSCD</span> <span class="pub-tag first">First Author</span></div>
-    </div>
-
-    <div class="pub-year">2024</div>
-
-    <div class="pub-item">
-        <div class="pub-title">20世纪初塔里木盆地大旱与生态响应 [Severe drought and ecological response in the Tarim Basin in the early 20th century]</div>
-        <div class="pub-venue"><em>Plateau Meteorology</em> 43(03): 605–616 <span class="pub-tag cscd">CSCD</span> <span class="pub-tag first">First Author</span></div>
-    </div>
-
-    <div class="pub-year">2023</div>
-
-    <div class="pub-item">
-        <div class="pub-title">宋代以来河湟谷地藏传佛教寺院空间扩展及其驱动因素 [Spatial expansion and driving factors of Tibetan Buddhist monasteries in the Hehuang Valley since the Song Dynasty]</div>
-        <div class="pub-venue"><em>Economic Geography</em> 43(06): 220–229 <span class="pub-tag cssci">CSSCI / CSCD</span> Corresponding Author</div>
-    </div>
-
-    <div class="pub-year">2022</div>
-
-    <div class="pub-item">
-        <div class="pub-title">清末民国新疆农田水利建设成果可视化及分析 (1909–1935) [Visualization and analysis of farmland irrigation construction in late Qing and Republican Xinjiang]</div>
-        <div class="pub-venue"><em>Researches in Chinese Economic History</em> No.161(03): 155–166 <span class="pub-tag cssci">CSSCI</span> <span class="pub-tag first">First Author</span></div>
-    </div>
-
-    <div class="pub-year">2021</div>
-
-    <div class="pub-item">
-        <div class="pub-title">16世纪末以来北运河水系演变及驱动因素 [Evolution and driving factors of the North Grand Canal water system since the late 16th century]</div>
-        <div class="pub-venue"><em>Advances in Earth Science</em> 36(04): 390–398 <span class="pub-tag cscd">CSCD</span> <span class="pub-tag first">First Author</span></div>
-    </div>
-
-    <div class="pub-year">2018</div>
-
-    <div class="pub-item">
-        <div class="pub-title">近百年来渭干-库车绿洲灌渠变动对地表水系格局的影响 [Impact of canal changes on surface water patterns in the Weigan-Kuqa Oasis over the past century]</div>
-        <div class="pub-venue"><em>Journal of Arid Land Resources and Environment</em> 32(10): 123–129 <span class="pub-tag cssci">CSSCI / CSCD</span> <span class="pub-tag first">First Author</span></div>
-    </div>
-
-    <p style="margin-top: 2rem; font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--muted);">
-        → Full publication list including book chapters, co-authored works, and forthcoming publications available in <a href="#cv" style="color: var(--accent);">CV</a>.
-    </p>
-</section>
 
 <section class="shaded">
     <div class="section-inner">
